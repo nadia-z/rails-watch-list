@@ -12,7 +12,6 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-    @bookmarks = @list.bookmarks.includes(:movie)
   end
 
   def create
