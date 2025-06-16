@@ -1,9 +1,14 @@
 <h1>My Movie Lists</h1>
-
-<ul>
-<% @lists.each do |list|%>
-  <a href="<%= list_path(list) %>"><%= list.name %></a>
-<% end%>
-</ul>
+<div class="d-flex flex-wrap gap-3">
+  <% @lists.each do |list| %>
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag("j3bpb2pkzluntq2hkdz8", width: 400, height: 300, crop: :fill, class: "card-img-top") %>
+      <div class="card-body">
+        <h5 class="card-title"><%= list.name %></h5>
+        <a href="<%= list_path(list) %>" class="btn btn-primary">See list</a>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "create a new one", new_list_path%>
