@@ -1,12 +1,12 @@
 <h3>Create a new list</h3>
 
-<%= form_with model: @list do |f| %>
+<%= simple_form_for @list, html: { multipart: true } do |f| %>
   <div>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div>
-    <%= f.submit "Save List" %>
+    <%= f.button :submit, "Save List" %>
   </div>
 <% end %>

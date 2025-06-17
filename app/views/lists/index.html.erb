@@ -2,8 +2,10 @@
 <div class="d-flex flex-wrap gap-3">
   <% @lists.each do |list| %>
     <div class="card" style="width: 18rem;">
-      <%= cl_image_tag("j3bpb2pkzluntq2hkdz8", width: 400, height: 300, crop: :fill, class: "card-img-top") %>
-      <div class="card-body">
+      <% if list.photo.attached? %>
+        <%= cl_image_tag list.photo.key, width: 400, height: 300, crop: :fill, class: "card-img-top" %>
+      <% end %>
+        <div class="card-body">
         <h5 class="card-title"><%= list.name %></h5>
         <a href="<%= list_path(list) %>" class="btn btn-primary">See list</a>
       </div>
